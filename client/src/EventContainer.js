@@ -1,4 +1,11 @@
 import React from 'react';
+import posed from 'react-pose';
+
+const Pressable = posed.div({
+  pressable: true,
+  init: { scale: 1 },
+  press: { scale: 0.9 }
+});
 
 const months = ['', 'tammi', 'helmi', 'maalis', 'huhti', 'touko', 'kesä', 'heinä', 'elo', 'syys', 'loka', 'marras', 'joulu'];
 
@@ -13,7 +20,7 @@ const event = ({ desc, category, price, time, date }) => {
   const {day, month} = parseDate(date);
 
   return (
-    <div className="col-md-12 col-lg-6">
+    <Pressable className="col-md-12 col-lg-6">
       <div className={`c-aspect-ratio c-category-${category}`} >
         <div className="c-aspect-ratio-inside">
           <div className="c-date-container">
@@ -26,7 +33,7 @@ const event = ({ desc, category, price, time, date }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Pressable>
   )
 };
 

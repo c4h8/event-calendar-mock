@@ -1,19 +1,25 @@
 import React from 'react';
+import posed from 'react-pose';
+
+const Pressable = posed.div({
+  pressable: true,
+  init: { scale: 1 },
+  press: { scale: 0.8 }
+});
 
 const EventHeader = ({ categories, activeCategories, setCategoryState }) => (
   <div className="row">
   <div className="col-sm-12 clearfix">
     {categories.map(category =>
-      <a
+      <Pressable
         className={`c-category-${category} c-badge ${activeCategories[category] ? '' :'disabled'}`}
-        href="#"
         onClick={(e) => {
           e.preventDefault();
           setCategoryState(category, !activeCategories[category])
         }}
       >
         {category}
-      </a>
+      </Pressable>
     )}
   </div>
     </div>
