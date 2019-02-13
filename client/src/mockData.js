@@ -33,6 +33,13 @@ const mockData = [
     imgUrl: '',
     date: '13.8.2019'
   },
+  {
+    desc: 'n',
+    time: '18:40',
+    price: 7.5,
+    imgUrl: '',
+    date: '29.8.2019'
+  },
 ];
 
 export default mockData;
