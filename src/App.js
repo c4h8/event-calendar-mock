@@ -53,7 +53,7 @@ class App extends Component {
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="navbar-nav">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">tahaphtumat <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="#">tapahtumat <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">historia </a>
