@@ -4,6 +4,17 @@ import EventContainer from './EventContainer';
 
 import './App.css';
 import EventHeader from './EventHeader';
+import posed, {PoseGroup} from 'react-pose';
+
+
+const EventPoser = posed.li({
+  enter: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  }
+});
 
 const getCategories = (data) => {
   const res = {}
@@ -32,12 +43,6 @@ class App extends Component {
       eventsFiltered
     });
   }
-  
-  
-  // this.setState(old => ({
-  //   activeCategories: {...old.activeCategories, [category]: categoryState},
-  //   eventsFiltered: mockData.filter(event => activeCategories[event.category])
-  // }));
 
   render() {
     return (
@@ -58,7 +63,7 @@ class App extends Component {
           </nav>
           <div className="row">
           <div className="col-sm-12" style={{margin: '30px 0px 15px 0px'}}>
-            <h3>Tapahtumat</h3>
+            <h1 style={{fontFamily: 'Oswald', fontWeight: 700, letterSpacing: '0.25rem', fontSize: '5rem', textShadow: '-2px 2px 0 #000', color: '#FFF'}}>TAPAHTUMAT</h1>
           </div>
           </div>
           <EventHeader
@@ -67,9 +72,13 @@ class App extends Component {
             setCategoryState={this.setCategoryState}
           />
           <div className="row calendar">
-            { this.state.eventsFiltered.map(event => 
-              <EventContainer {...event}/>
-            )}
+            <PoseGroup>
+              { this.state.eventsFiltered.map(event => 
+              <EventPoser key={event.id} className="col-md-6 col-sm-12">
+                <EventContainer {...event}/>
+              </EventPoser>
+              )}
+            </PoseGroup> 
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@ import posed from 'react-pose';
 const Pressable = posed.div({
   pressable: true,
   init: { scale: 1 },
-  press: { scale: 0.8 }
+  press: { scale: 1.2 }
 });
 
 const EventHeader = ({ categories, activeCategories, setCategoryState }) => (
