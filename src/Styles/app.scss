@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+}
+
+/* .row.calendar {
+  margin-left: -8px;
+  margin-right: -8px;
+} */
+
+.row.calendar > [class^="col-"] {
+  padding: 8px 16px;
+};
+
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700');
+
+@fontface {
+  font-family: 'Oswald';
+  src: url('https://fonts.googleapis.com/css?family=Oswald')
+}
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:700');
+
+@fontface {
+  font-family: 'Noto Serif', serif;
+  src: url('https://fonts.googleapis.com/css?family=Noto+Serif:700');
+}
+
+
+.c-badge:last-child {
+  margin-left: 0px;
+}
+
+.c-badge:first-child {
+  margin-right: 0px;
+}
+
+.c-badge.disabled {
+  background-color: transparent !important;
+}
+
+.c-title {
+  font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
+  "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+  font-size: 1.75rem
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+

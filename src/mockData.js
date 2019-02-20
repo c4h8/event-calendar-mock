@@ -35,9 +35,17 @@ const mockData = [
     category: 'event',
     time: '18:40',
     price: 3,
-    imgUrl: '',
     date: '13.8.2019',
     id: 'f'
+  },
+  {
+    desc: 'Yölintu',
+    category: 'event',
+    time: '18:40',
+    price: 7.25,
+    imgUrl: 'https://kahvilaravintolaleikari.fi/wp-content/uploads/bfi_thumb/ylintu-o34mrvkg6petggds3buubx2ggb4a2ozm4d2vk67zqw.jpg',
+    date: '13.8.2019',
+    id: 'g'
   },
 ];
 

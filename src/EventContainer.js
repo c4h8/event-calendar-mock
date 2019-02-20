@@ -21,7 +21,7 @@ const parseDate = date => {
   return ({day: parts[0], month: months[parseInt(parts[1])]})
 }
 
-const Event = ({ desc, category, price, time, date, id, dispatch }) => {
+const Event = ({ desc, category, price, time, date, id, dispatch, imgUrl }) => {
   const {day, month} = parseDate(date);
 
   return (
@@ -38,6 +38,10 @@ const Event = ({ desc, category, price, time, date, id, dispatch }) => {
             <p className="c-date-container-day">{day}</p>
           </div>
           <div className="c-info-container">
+            { imgUrl 
+             ? <img className="c-ticket-image" src={imgUrl} />
+             : null
+            }
             <p className="c-title">{desc}</p>
             <p>{time && `Klo ${time}`}  {price && time && '/'} {price && `Liput ${price}€`}</p>
           </div>

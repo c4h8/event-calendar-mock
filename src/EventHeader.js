@@ -9,19 +9,32 @@ const Pressable = posed.div({
   press: { scale: 1.2 }
 });
 
+const FilterButton = ({ name, isActive, toggleEventCategoty }) => (
+  <Pressable
+    className={`c-category-${name} c-badge ${isActive ? '' :'disabled'}`}
+    onClick={(e) => {
+      e.preventDefault();
+      toggleEventCategoty(name)
+    }}
+  >
+    <span>
+      {/* {isActive
+        ? <i className="material-icons md-24">visibility</i>
+        : <i className="material-icons md-24">visibility_off</i>} */}
+      {name}
+    </span>
+  </Pressable>
+);
+
 const EventHeader = ({ categories, activeCategories, toggleEventCategoty }) => (
   <div className="row">
     <div className="col-sm-12 clearfix">
       {categories.map(category =>
-        <Pressable
-          className={`c-category-${category} c-badge ${activeCategories[category] ? '' :'disabled'}`}
-          onClick={(e) => {
-            e.preventDefault();
-            toggleEventCategoty(category)
-          }}
-        >
-          {category}
-        </Pressable>
+        <FilterButton
+          name={category}
+          isActive={activeCategories[category]}
+          toggleEventCategoty={toggleEventCategoty}
+        />
       )}
     </div>
   </div>

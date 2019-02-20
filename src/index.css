@@ -8,11 +8,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background:    
+ 
   /* radial-gradient( circle, transparent, black 200%), */
-    url(./paper-bg2.png)
-;
-
+  background-color: rgb(165, 154, 134);
   /* background: radial-gradient( circle, transparent 50%, black 150%), rgba(0, 0, 0, 0); height: 180px; */
 }
 

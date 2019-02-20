@@ -5,7 +5,8 @@ import posed, {PoseGroup} from 'react-pose';
 import mockData from './mockData';
 import EventContainer from './EventContainer';
 
-import './App.css';
+import './Styles/app.scss';
+import './Styles/ticket.scss';
 import EventHeader from './EventHeader';
 
 import {Navbar} from './Components/Navbar';

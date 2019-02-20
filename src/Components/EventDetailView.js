@@ -4,11 +4,6 @@ import { connect } from 'react-redux'
 
 import {setActiveEvent} from '../actions';
 
-const bgStyle = ({
-  position: 'absolute',
-  background: 'rgba(0, 0, 0, 0.8)',
-})
-
 const modalStyle = ({
   display: 'block',
   // width: '100vw',
