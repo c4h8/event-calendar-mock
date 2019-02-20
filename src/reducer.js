@@ -38,10 +38,8 @@ const toggleCategory = (state, category) => {
   })
 }
 
-// const setEvents = (state, action) => ({ ...state, events: action.events });
 
 const setActiveEvent = (state, action) => ({ ...state, activeEvent: action.activeEvent });
-
 
 
 function reducer(state = ({}), action) {

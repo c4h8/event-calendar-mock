@@ -15,7 +15,7 @@ import CalendarTitle from './Components/CalendarTitle';
 
 
 
-const EventPoser = posed.li({
+const EventPoser = posed.div({
   enter: {
     opacity: 1,
   },
@@ -70,7 +70,7 @@ class App extends Component {
           <div className="row calendar">
             <PoseGroup>
               { this.props.activeEventIds && this.props.activeEventIds.map(eventId => 
-                <EventPoser key={eventId} className="col-md-6 col-sm-12">
+                <EventPoser key={eventId} className="col-lg-4 col-md-6 col-sm-12">
                   <EventContainer {...this.props.events[eventId] }/>
                 </EventPoser>
               )}

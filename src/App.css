@@ -2,13 +2,13 @@
   text-align: center;
 }
 
-.row.calendar {
+/* .row.calendar {
   margin-left: -8px;
   margin-right: -8px;
-}
+} */
 
-.row.calendar > li[class^="col-"] {
-  padding: 8px;
+.row.calendar > [class^="col-"] {
+  padding: 8px 16px;
 };
 
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600,700');
@@ -60,12 +60,7 @@
   position: relative;
   width: 100%;
   padding-bottom: 30%;
-  overflow: hidden;
   min-height: 150px;
-
-  -webkit-box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75);
-  box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75);
 }
 
 .c-aspect-ratio-inside {
@@ -76,7 +71,39 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.c-aspect-ratio-inside:before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  width: 6px;
+  top: 10px;
+  bottom: 10px;
+  background: radial-gradient(circle, transparent, transparent 50%, #FFF 50%, #FFF 100% ) -8px -8px / 16px 16px repeat-y;
+  }
+  
+  .c-aspect-ratio-inside:after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    width: 6px;
+    top: 10px;
+    bottom: 10px;
+    background: radial-gradient(circle, transparent, transparent 50%, #FFF 50%, #FFF 100% ) -2px -8px / 16px 16px repeat-y;
+}
+
+.c-ticket {
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
   background-color: #FFF;
+  display: flex;
+
+  -webkit-box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75);
+  box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75);
 }
 
 .c-date-container {
@@ -84,7 +111,9 @@
   height: 100%;
   text-align: left;
   font-family: 'Noto Serif', serif;
-  padding: 1em;
+  border: 5px solid rgb(255, 255, 255);
+  padding: 0px 10px;
+  border-radius: 10px;
   width: 90px;
 }
 
@@ -103,11 +132,7 @@
   flex-grow: 1;
   height: 100%;
   padding: 1em 0em;
-}
-
-div [class^="c-date-container c-category-"] {
-  /* border-style: hidden; */
-  border-right: 2px dashed #FFF;
+  /* background-color: #FFF; */
 }
 
 .c-category-dance {
@@ -161,7 +186,7 @@ ul {
 }
 
 li {
-  list-style: none; /* Remove list bullets */
+  list-style: none; 
   padding: 0;
   margin: 0;
 }

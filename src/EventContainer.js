@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import {setActiveEvent} from './actions';
 
-const Pressable = posed.li({
+const Pressable = posed.div({
   pressable: true,
   hoverable: true,
   init: { scale: 1 },
@@ -32,13 +32,15 @@ const Event = ({ desc, category, price, time, date, id, dispatch }) => {
       }
     >
       <div className="c-aspect-ratio-inside">
-        <div className={`c-date-container c-category-${category}`}>
-          <p className="c-date-container-month">{month}</p>
-          <p className="c-date-container-day">{day}</p>
-        </div>
-        <div className="c-info-container">
-          <p className="c-title">{desc}</p>
-          <p>{time && `Klo ${time}`}  {price && time && '/'} {price && `Liput ${price}€`}</p>
+        <div className="c-ticket">
+          <div className={`c-date-container c-category-${category}`}>
+            <p className="c-date-container-month">{month}</p>
+            <p className="c-date-container-day">{day}</p>
+          </div>
+          <div className="c-info-container">
+            <p className="c-title">{desc}</p>
+            <p>{time && `Klo ${time}`}  {price && time && '/'} {price && `Liput ${price}€`}</p>
+          </div>
         </div>
       </div>
     </Pressable>
