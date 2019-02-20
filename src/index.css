@@ -13,8 +13,6 @@ body {
     url(./paper-bg2.png)
 ;
 
-  overflow-y: visible;
-
   /* background: radial-gradient( circle, transparent 50%, black 150%), rgba(0, 0, 0, 0); height: 180px; */
 }
 

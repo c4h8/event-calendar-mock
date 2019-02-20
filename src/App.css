@@ -105,6 +105,11 @@
   padding: 1em 0em;
 }
 
+div [class^="c-date-container c-category-"] {
+  /* border-style: hidden; */
+  border-right: 2px dashed #FFF;
+}
+
 .c-category-dance {
   background-color: #D7EBBA;
 }
@@ -160,3 +165,4 @@ li {
   padding: 0;
   margin: 0;
 }
+

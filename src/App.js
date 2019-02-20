@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import posed, {PoseGroup} from 'react-pose';
+
 import mockData from './mockData';
 import EventContainer from './EventContainer';
 
 import './App.css';
 import EventHeader from './EventHeader';
-import posed, {PoseGroup} from 'react-pose';
+
+import {Navbar} from './Components/Navbar';
+import EventDetailView from './Components/EventDetailView';
+import {setEvents} from './actions';
+import CalendarTitle from './Components/CalendarTitle';
+
 
 
 const EventPoser = posed.li({
@@ -44,28 +52,16 @@ class App extends Component {
     });
   }
 
+  componentDidMount = () => {
+    this.props.dispatch(setEvents(mockData))
+  }
+
   render() {
     return (
       <div className="App">
         <div className="container">
-          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <a class="nav-link" href="#">tapahtumat <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">historia </a>
-                </li>
-              </ul>
-            </div>
-          </nav>
-          <div className="row">
-          <div className="col-sm-12" style={{margin: '30px 0px 15px 0px'}}>
-            <h1 style={{fontFamily: 'Oswald', fontWeight: 700, letterSpacing: '0.25rem', fontSize: '5rem', textShadow: '-2px 2px 0 #000', color: '#FFF'}}>TAPAHTUMAT</h1>
-          </div>
-          </div>
+          <Navbar />
+          <CalendarTitle />
           <EventHeader
             categories={this.state.categories} 
             activeCategories={this.state.activeCategories}
@@ -73,17 +69,27 @@ class App extends Component {
           />
           <div className="row calendar">
             <PoseGroup>
-              { this.state.eventsFiltered.map(event => 
-              <EventPoser key={event.id} className="col-md-6 col-sm-12">
-                <EventContainer {...event}/>
-              </EventPoser>
+              { this.props.activeEventIds && this.props.activeEventIds.map(eventId => 
+                <EventPoser key={eventId} className="col-md-6 col-sm-12">
+                  <EventContainer {...this.props.events[eventId] }/>
+                </EventPoser>
               )}
             </PoseGroup> 
           </div>
         </div>
+        <EventDetailView />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  events: state.events,
+  activeEventIds: state.activeEventIds
+})
+
+const mapDispatchToProps = dispatch => ({
+  dispatch
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
