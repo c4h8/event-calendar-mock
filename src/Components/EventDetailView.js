@@ -37,7 +37,7 @@ const Modal = posed.div({
 });
 
 
-const EventDetailView = ({ event, isVisible, dispatch }) => (
+const EventDetailView = ({ event: { title, category, price, time, date, id, description } = {}, isVisible, dispatch }) => (
   <PoseGroup>
     {isVisible && 
       <Shade
@@ -51,8 +51,8 @@ const EventDetailView = ({ event, isVisible, dispatch }) => (
           <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h4 className="modal-title" id="exampleModalCenterTitle">
-                  {event.desc}
+                <h4 className="modal-title f-oswald">
+                  {title}
                 </h4>
                 <button
                   type="button"
@@ -64,7 +64,20 @@ const EventDetailView = ({ event, isVisible, dispatch }) => (
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className="modal-body">
+              <div className="modal-body ta-left">
+                <div className="c-modal-info">
+                  {date
+                    ? <p>{`${date}`} </p>
+                    : null}
+                  {time
+                    ? <p>{`Klo ${time}`}</p>
+                    : null}
+                  {price
+                    ? <p>{`Liput ${price}€`}</p>
+                    : null}
+                </div>
+
+                <p className="ta-left">{description}</p>
               </div>
             </div>
           </div>

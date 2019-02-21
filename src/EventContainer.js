@@ -9,7 +9,7 @@ const Pressable = posed.div({
   hoverable: true,
   init: { scale: 1 },
   press: { scale: 0.90 },
-  hover: { scale: 1.05, zIndex: 100 },
+  hover: { scale: 1.05 },
 });
 
 const months = ['', 'tammi', 'helmi', 'maalis', 'huhti', 'touko', 'kesä', 'heinä', 'elo', 'syys', 'loka', 'marras', 'joulu'];
@@ -21,13 +21,14 @@ const parseDate = date => {
   return ({day: parts[0], month: months[parseInt(parts[1])]})
 }
 
-const Event = ({ desc, category, price, time, date, id, dispatch, imgUrl }) => {
+const Event = ({ title, category, price, time, date, id, dispatch, imgUrl }) => {
   const {day, month} = parseDate(date);
 
   return (
     <Pressable
       className={`c-aspect-ratio inner-round`}
-      onClick={() => {
+      onClick={(e) => {
+        e.stopPropagation();
         dispatch(setActiveEvent(id))} 
       }
     >
@@ -37,13 +38,15 @@ const Event = ({ desc, category, price, time, date, id, dispatch, imgUrl }) => {
             <p className="c-date-container-month">{month}</p>
             <p className="c-date-container-day">{day}</p>
           </div>
-          <div className="c-info-container">
+          <div className="c-info-container" style={{ backgroundColor: imgUrl ? '#000' : '#FFF'}}>
             { imgUrl 
              ? <img className="c-ticket-image" src={imgUrl} />
              : null
             }
-            <p className="c-title">{desc}</p>
-            <p>{time && `Klo ${time}`}  {price && time && '/'} {price && `Liput ${price}€`}</p>
+            <div style={{position: 'absolute', width: '100%', height: '100%'}}>
+              <p className="c-title" style={{color: imgUrl ? '#FFF' : '#000'}}>{title}</p>
+              <p style={{color: imgUrl ? '#FFF' : '#000'}}>{time && `Klo ${time}`}  {price && time && '/'} {price && `Liput ${price}€`}</p>
+            </div>
           </div>
         </div>
       </div>

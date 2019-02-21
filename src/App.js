@@ -60,8 +60,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+              <Navbar />
         <div className="container">
-          <Navbar />
           <CalendarTitle />
           <EventHeader
             categories={this.state.categories} 

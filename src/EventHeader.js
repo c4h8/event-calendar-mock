@@ -31,6 +31,7 @@ const EventHeader = ({ categories, activeCategories, toggleEventCategoty }) => (
     <div className="col-sm-12 clearfix">
       {categories.map(category =>
         <FilterButton
+          key={category}
           name={category}
           isActive={activeCategories[category]}
           toggleEventCategoty={toggleEventCategoty}

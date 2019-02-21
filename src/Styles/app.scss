@@ -2,10 +2,7 @@
   text-align: center;
 }
 
-/* .row.calendar {
-  margin-left: -8px;
-  margin-right: -8px;
-} */
+
 
 .row.calendar > [class^="col-"] {
   padding: 8px 16px;
@@ -38,6 +35,7 @@
   background-color: transparent !important;
 }
 
+.f-oswald,
 .c-title {
   font-family: "Oswald", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen",
   "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -56,3 +54,19 @@ li {
   margin: 0;
 }
 
+.ta-left {
+  text-align: left;
+}
+
+.c-modal-info {
+  font-size: 1.25rem;
+
+  > p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+
+    &:last-child {
+      margin-bottom: 2rem;
+    }
+ }
+}

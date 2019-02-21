@@ -7,6 +7,7 @@ $ticket-color: rgb(255, 255, 255);
   width: 100%;
   padding-bottom: 30%;
   min-height: 150px;
+  user-select: none;
 }
 
 .c-aspect-ratio-inside {
@@ -84,13 +85,13 @@ $ticket-color: rgb(255, 255, 255);
 .c-info-container {
   display: inline-block;
   flex-grow: 1;
-  /* background-color: #FFF; */
   border-radius: 0px 5px 5px 0px;
   overflow: hidden;
   position: relative;
 
   p {
     z-index: 20;
+    position: relative;
     color: #000;
   }
 }
@@ -99,31 +100,22 @@ $ticket-color: rgb(255, 255, 255);
   object-fit: cover;
   filter: opacity(50%);
   position: absolute;
-  display: inline;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 0;
 }
 
-
-.c-category-dance {
+.c-category-tanssit {
   background-color: #c8e2a1; 
-  // border: 2px solid #c8e2a1;
-
 }
 
-.c-category-music {
+.c-category-musiikki {
   background-color: #9AD2CB; 
-  // border: 2px solid #9AD2CB;
-
 }
 
-.c-category-event {
+.c-category-tapahtuma {
   background-color: #FCBFB7;
-  // border: 2px solid #FCBFB7;
-
 }
 
 .c-badge {
@@ -133,8 +125,4 @@ $ticket-color: rgb(255, 255, 255);
   padding: 6px;
   color: #000;
   margin: 8px;
-
-  /* -webkit-box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75);
-  -moz-box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75);
-  box-shadow: -1px 7px 9px -5px rgba(0,0,0,0.75); */
 }
