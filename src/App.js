@@ -3,18 +3,21 @@ import { connect } from 'react-redux'
 import posed, {PoseGroup} from 'react-pose';
 
 import mockData from './mockData';
-import EventContainer from './EventContainer';
+import mockData2 from './mockData2';
+import mockData3 from './mockData3';
 
 import './Styles/app.scss';
 import './Styles/ticket.scss';
-import EventHeader from './EventHeader';
 
+import EventHeader from './Components/EventHeader';
+
+import EventContainer from './Components/EventContainer';
 import {Navbar} from './Components/Navbar';
 import EventDetailView from './Components/EventDetailView';
 import {setEvents} from './actions';
 import CalendarTitle from './Components/CalendarTitle';
 
-
+import {eventDataAdapter} from './helpers';
 
 const EventPoser = posed.div({
   enter: {
@@ -54,13 +57,13 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.props.dispatch(setEvents(mockData))
+    this.props.dispatch(setEvents(eventDataAdapter(mockData3)))
   }
 
   render() {
     return (
       <div className="App">
-              <Navbar />
+        <Navbar />
         <div className="container">
           <CalendarTitle />
           <EventHeader

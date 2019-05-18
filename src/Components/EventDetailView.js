@@ -37,7 +37,7 @@ const Modal = posed.div({
 });
 
 
-const EventDetailView = ({ event: { title, category, price, time, date, id, description } = {}, isVisible, dispatch }) => (
+const EventDetailView = ({ event: { title, category, price, time, date, id, description, startTime, endTime } = {}, isVisible, dispatch }) => (
   <PoseGroup>
     {isVisible && 
       <Shade
@@ -71,6 +71,9 @@ const EventDetailView = ({ event: { title, category, price, time, date, id, desc
                     : null}
                   {time
                     ? <p>{`Klo ${time}`}</p>
+                    : null}
+                  {startTime
+                    ? <p>{`Klo ${startTime}`}{endTime ? ` - ${endTime}`: ""}</p>
                     : null}
                   {price
                     ? <p>{`Liput ${price}€`}</p>

@@ -2,7 +2,7 @@ import React from 'react';
 import posed from 'react-pose';
 import { connect } from 'react-redux'
 
-import {setActiveEvent} from './actions';
+import {setActiveEvent} from '../actions';
 
 const Pressable = posed.div({
   pressable: true,

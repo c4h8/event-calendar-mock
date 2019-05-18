@@ -54,6 +54,7 @@ const mockData = [
     title: 'Lasten Rasdasdönni',
     category: 'tapahtuma',
     time: '09:40',
+
     price: 3,
     date: '16.8.2019',
     id: 'f',

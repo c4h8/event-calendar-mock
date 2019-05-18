@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import posed from 'react-pose';
-import { toggleEventCategoty } from './actions';
+import { toggleEventCategoty } from '../actions';
 
 const Pressable = posed.div({
   pressable: true,

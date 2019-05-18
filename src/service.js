@@ -1,10 +1,8 @@
 import axios from 'axios';
+import mockData from './mockData3'
 
-export const mockService = ({
-  loadEvents: n
-
-
+const mockService = ({
+  loadEvents: () => Promise.resolve({ data: JSON.parse(mockData) })
 });
 
-
-
+export default mockService;

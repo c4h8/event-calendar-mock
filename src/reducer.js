@@ -7,6 +7,10 @@ const parseEvents = (state, events) => {
   const res = ({})
   const activeEventCategories = ({})
 
+  events.forEach((event, i) => {
+    event.id = ""+ i;
+  });
+
   events.forEach(event => {
     res[event.id] = event;
     activeEventCategories[event.category] = true;
