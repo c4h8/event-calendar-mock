@@ -6,8 +6,11 @@ import {setActiveEvent} from '../actions';
 
 const modalStyle = ({
   display: 'block',
-  // width: '100vw',
-  // heigh: '100vh',
+  position: 'fixed',
+  top: '0',
+  left: '0',
+  width: '100vw',
+  heigh: '100vh',
   // maxWidth: '100vw',
   // maxHeigh: '100vh',
   background: 'rgba(0, 0, 0, 0.8)',
@@ -37,7 +40,7 @@ const Modal = posed.div({
 });
 
 
-const EventDetailView = ({ event: { title, category, price, time, date, id, description, startTime, endTime } = {}, isVisible, dispatch }) => (
+const EventDetailView = ({ event: { title, category, price, time, date, id, description, startTime, endTime, imgUrl, ticketLink } = {}, isVisible, dispatch }) => (
   <PoseGroup>
     {isVisible && 
       <Shade
@@ -64,23 +67,32 @@ const EventDetailView = ({ event: { title, category, price, time, date, id, desc
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div className="modal-body ta-left">
-                <div className="c-modal-info">
-                  {date
-                    ? <p>{`${date}`} </p>
-                    : null}
-                  {time
-                    ? <p>{`Klo ${time}`}</p>
-                    : null}
-                  {startTime
-                    ? <p>{`Klo ${startTime}`}{endTime ? ` - ${endTime}`: ""}</p>
-                    : null}
-                  {price
-                    ? <p>{`Liput ${price}€`}</p>
-                    : null}
+              <div className="modal-body ta-left event-modal-body">
+                <div className="row">
+                  <div className="event-modal-info col-md-4 col-sm-12">
+                    {date
+                      ? <p>{`${date}`} </p>
+                      : null}
+                    {time
+                      ? <p>{`Klo ${time}`}</p>
+                      : null}
+                    {startTime
+                      ? <p>{`Klo ${startTime}`}{endTime ? ` - ${endTime}`: ""}</p>
+                      : null}
+                    {price
+                      ? <p>{`Liput ${price}€`}</p>
+                      : null}
+                    {ticketLink
+                      ? <a className="btn btn-info" href={ticketLink} target="_blank">Ennakkoliput <i class="material-icons">shopping_cart</i></a>
+                      : null}
+                  </div>
+                  <div className="col-md-8 col-sm-12 event-modal-image">
+                    <img src={imgUrl} alt={`${title}`} />
+                  </div>
+                  <div className="col-md-12 col-sm-12 event-modal-description">
+                    <span>{description}</span>
+                  </div>
                 </div>
-
-                <p className="ta-left">{description}</p>
               </div>
             </div>
           </div>

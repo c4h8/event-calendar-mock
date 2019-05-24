@@ -3,21 +3,24 @@ import { connect } from 'react-redux'
 import posed, {PoseGroup} from 'react-pose';
 
 import mockData from './mockData';
-import mockData2 from './mockData2';
 import mockData3 from './mockData3';
 
 import './Styles/app.scss';
 import './Styles/ticket.scss';
+import './Styles/listview.scss';
+import './Styles/eventDetailModal.scss'
 
 import EventHeader from './Components/EventHeader';
 
 import EventContainer from './Components/EventContainer';
-import {Navbar} from './Components/Navbar';
+import ListEvent from './Components/EventListView';
+import {Navbar} from './Components/Navbar'; // TODO: delete
 import EventDetailView from './Components/EventDetailView';
 import {setEvents} from './actions';
 import CalendarTitle from './Components/CalendarTitle';
 
 import {eventDataAdapter} from './helpers';
+import EventListView from './Components/EventListView';
 
 const EventPoser = posed.div({
   enter: {
@@ -79,6 +82,9 @@ class App extends Component {
                 </EventPoser>
               )}
             </PoseGroup> 
+            {/* { this.props.activeEventIds && this.props.activeEventIds.map(eventId => 
+              <EventListView {...this.props.events[eventId] }/>
+            )} */}
           </div>
         </div>
         <EventDetailView />

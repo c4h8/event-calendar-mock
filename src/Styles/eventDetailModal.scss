@@ -1,0 +1,33 @@
+.event-modal-body {
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+
+.event-modal-image {
+
+  & > img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.event-modal-info {
+  font-size: 1.25rem;
+
+  > p {
+    // margin-top: 2px;
+    // margin-bottom: 2px;
+
+    &:last-child {
+      margin-bottom: 2rem;
+    }
+  }
+
+  i {
+    vertical-align: middle;
+  }
+}
+
+.event-modal-description {
+  margin-top: 32px;
+}
