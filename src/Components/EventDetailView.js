@@ -103,8 +103,8 @@ const EventDetailView = ({ event: { title, category, price, time, date, id, desc
 );
 
 const mapStateToProps = state => ({
-  isVisible: state.activeEvent,
-  event: state.activeEvent ? state.events[state.activeEvent] : undefined
+  isVisible: state.activeEvent !== undefined,
+  event: (state.activeEvent !== undefined) && state.events[state.activeEvent]
 });
 
 const mapDisptachToProps = dispatch => ({

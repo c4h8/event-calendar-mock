@@ -15,7 +15,7 @@ import EventContainer from './Components/EventContainer';
 import {Navbar} from './Components/Navbar'; // TODO: delete
 import EventDetailView from './Components/EventDetailView';
 import { loadData } from './actions';
-import CalendarTitle from './Components/CalendarTitle';
+import CalendarTitle from './Components/CalendarTitle'; // TODO: delete
 
 const EventPoser = posed.div({
   enter: {
