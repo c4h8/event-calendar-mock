@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import posed, {PoseGroup} from 'react-pose';
 
 import mockData from './mockData';
-import mockData3 from './mockData3';
 
 import './Styles/app.scss';
 import './Styles/ticket.scss';
@@ -13,14 +12,10 @@ import './Styles/eventDetailModal.scss'
 import EventHeader from './Components/EventHeader';
 
 import EventContainer from './Components/EventContainer';
-import ListEvent from './Components/EventListView';
 import {Navbar} from './Components/Navbar'; // TODO: delete
 import EventDetailView from './Components/EventDetailView';
-import {setEvents} from './actions';
+import { loadData } from './actions';
 import CalendarTitle from './Components/CalendarTitle';
-
-import {eventDataAdapter} from './helpers';
-import EventListView from './Components/EventListView';
 
 const EventPoser = posed.div({
   enter: {
@@ -31,36 +26,10 @@ const EventPoser = posed.div({
   }
 });
 
-const getCategories = (data) => {
-  const res = {}
-  data.forEach(event => {
-    if(event.category) res[event.category] = true;
-  });
-  return res;
-}
-
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { 
-      categories: Object.keys(getCategories(mockData)), 
-      activeCategories: getCategories(mockData), 
-      eventsFiltered: mockData 
-    };
-  }
-
-  setCategoryState = (category, categoryState) => {
-    const activeCategories = {...this.state.activeCategories, [category]: categoryState}
-    const eventsFiltered = mockData.filter(event => activeCategories[event.category])
-
-    this.setState({
-      activeCategories,
-      eventsFiltered
-    });
-  }
 
   componentDidMount = () => {
-    this.props.dispatch(setEvents(eventDataAdapter(mockData3)))
+    this.props.dispatch(loadData())
   }
 
   render() {
@@ -69,11 +38,7 @@ class App extends Component {
         <Navbar />
         <div className="container">
           <CalendarTitle />
-          <EventHeader
-            categories={this.state.categories} 
-            activeCategories={this.state.activeCategories}
-            setCategoryState={this.setCategoryState}
-          />
+          <EventHeader />
           <div className="row calendar">
             <PoseGroup>
               { this.props.activeEventIds && this.props.activeEventIds.map(eventId => 

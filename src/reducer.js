@@ -1,28 +1,32 @@
 
 import * as actions from './actionNames';
+import {eventDataAdapter} from './helpers';
 
 
 
-const parseEvents = (state, events) => {
+const parseData = (state, data) => {
   const res = ({})
-  const activeEventCategories = ({})
 
-  events.forEach((event, i) => {
-    event.id = ""+ i;
-  });
+
+  const events = eventDataAdapter(data.tapahtumat).map((tapahtuma, i) => ({
+    ...tapahtuma,
+    id: i
+  }));
+
+  const eventCategories = data.kategoriat.map(category => category.tapahtumaKategoria);
+  const activeEventCategories = eventCategories.map(category => ( {[`${category}`]: true} ));
+
 
   events.forEach(event => {
     res[event.id] = event;
     activeEventCategories[event.category] = true;
   });
 
-  const eventCategories = Object.keys(activeEventCategories);
-
   const eventIds = events.map(e => e.id);
 
   return {
     ...state,
-    events: res,
+    events,
     activeEventIds: eventIds,
     eventIds,
     eventCategories,
@@ -48,12 +52,14 @@ const setActiveEvent = (state, action) => ({ ...state, activeEvent: action.activ
 
 function reducer(state = ({}), action) {
   switch (action.type) {
-    case actions.SET_EVENTS:
-      return parseEvents(state, action.events)
+    case actions.SET_EVENTS:  // TODO: delete
+      return state
     case actions.SET_ACTIVE_EVENT:
       return setActiveEvent(state, action)
     case actions.TOGGLE_EVENT_CATEGORY:
       return toggleCategory(state, action.eventCategory)
+    case actions.LOAD_EVENTS_COMPLETED:
+      return parseData(state, action.data)
     default:
       return state
   }

@@ -1,8 +1,9 @@
 import axios from 'axios';
-import mockData from './mockData3'
+
+const API_URL = 'http://localhost:4000/data';
 
 const mockService = ({
-  loadEvents: () => Promise.resolve({ data: JSON.parse(mockData) })
+  loadData: () => axios.get(API_URL)
 });
 
 export default mockService;
