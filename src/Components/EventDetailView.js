@@ -8,11 +8,11 @@ const modalStyle = ({
   display: 'block',
   position: 'fixed',
   top: '0',
+  bottom: '0',
+  right: '0',
   left: '0',
-  width: '100vw',
-  heigh: '100vh',
-  // maxWidth: '100vw',
-  // maxHeigh: '100vh',
+  maxWidth: '100vw',
+  maxHeigh: '100vh',
   background: 'rgba(0, 0, 0, 0.8)',
   overflow: 'hidden'
 })
@@ -39,8 +39,10 @@ const Modal = posed.div({
   }
 });
 
+const emptyObject = {};
 
-const EventDetailView = ({ event: { title, category, price, time, date, id, description, startTime, endTime, imgUrl, ticketLink } = {}, isVisible, dispatch }) => (
+
+const EventDetailView = ({ event: { title, category, price, time, date, id, description, startTime, endTime, imgUrl, ticketLink } = emptyObject, isVisible, dispatch }) => (
   <PoseGroup>
     {isVisible && 
       <Shade

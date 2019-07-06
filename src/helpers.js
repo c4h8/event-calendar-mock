@@ -1,7 +1,7 @@
 export const eventDataAdapter = (events) => events.map((e, i) => ({
   category: e.kategoria,
   title: e.ohjelma,
-  imgUrl: e.kuvaurl || `https://loremflickr.com/320/240?lock=${i*4}`, //TODO: DELETE FOR PRODUCTION,
+  imgUrl: e.kuvaurl || `http://lorempixel.com/620/420/city/${i}`, //TODO: DELETE FOR PRODUCTION,
   performers: e.ohjelma,
   startTime: e.alkuKlo,
   endTime: e.loppuKlo,
