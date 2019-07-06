@@ -8,7 +8,11 @@ const mockService = ({
 });
 
 const mockServiceHeroku = ({
-  loadData: () => Promise.resolve({ data: mockData })
+  loadData: () => {
+    return new Promise((resolve) => {
+      resolve(mockData)
+    })
+  },
 })
 
 export default (process.env.NODE_ENV === 'production') ? mockServiceHeroku : mockService;
